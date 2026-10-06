@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Navigation System</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="header">
+
+        <div class="logo">
+            🎓
+        </div>
+
+        <div>
+            <h1>Campus Navigation</h1>
+            <p>Graph-Based Shortest Path System</p>
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="main-container">
+
+
+        <!-- HERO SECTION -->
+
+        <section class="hero">
+
+            <div class="hero-icon">
+                🧭
+            </div>
+
+            <h2>Find Your Campus Route</h2>
+
+            <p>
+                Select your starting location and destination
+                to find the shortest route through the campus.
+            </p>
+
+        </section>
+
+
+
+        <!-- =========================================
+             NAVIGATION CARD
+        ========================================== -->
+
+        <section class="navigation-card">
+
+            <h2>Plan Your Route</h2>
+
+            <p class="card-subtitle">
+                Choose your starting point and destination
+            </p>
+
+
+            <!-- Starting Location -->
+
+            <div class="location-box">
+
+                <label for="startLocation">
+                    📍 Starting Location
+                </label>
+
+                <select id="startLocation">
+
+                    <option value="">
+                        Select starting location
+                    </option>
+
+                    <option value="Main Gate">
+                        Main Gate
+                    </option>
+
+                    <option value="Bhaskara Block">
+                        Bhaskara Block
+                    </option>
+
+                    <option value="Cafe">
+                        Cafe
+                    </option>
+
+                    <option value="Aryabhatta Ground Floor">
+                        Aryabhatta Ground Floor
+                    </option>
+
+                    <option value="Department of Artificial Intelligence">
+                        Department of Artificial Intelligence
+                    </option>
+
+                    <option value="Aryabhatta 1st Floor">
+                        Aryabhatta 1st Floor
+                    </option>
+
+                    <option value="Department of Mechanical Engineering">
+                        Department of Mechanical Engineering
+                    </option>
+
+                    <option value="3rd & 4th Year CSE Classes">
+                        3rd & 4th Year CSE Classes
+                    </option>
+
+                    <option value="Aryabhatta 2nd Floor">
+                        Aryabhatta 2nd Floor
+                    </option>
+
+                    <option value="Department of Electrical and Electronics Engineering">
+                        Department of Electrical and Electronics Engineering
+                    </option>
+
+                    <option value="Department of Computer Science and Engineering">
+                        Department of Computer Science and Engineering
+                    </option>
+
+                    <option value="Aryabhatta 3rd Floor">
+                        Aryabhatta 3rd Floor
+                    </option>
+
+                    <option value="Department of Mechatronics Engineering">
+                        Department of Mechatronics Engineering
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Arrow -->
+
+            <div class="route-arrow">
+                ↓
+            </div>
+
+
+            <!-- Destination -->
+
+            <div class="location-box">
+
+                <label for="destination">
+                    🏁 Destination
+                </label>
+
+                <select id="destination">
+
+                    <option value="">
+                        Select destination
+                    </option>
+
+                    <option value="Main Gate">
+                        Main Gate
+                    </option>
+
+                    <option value="Bhaskara Block">
+                        Bhaskara Block
+                    </option>
+
+                    <option value="Cafe">
+                        Cafe
+                    </option>
+
+                    <option value="Aryabhatta Ground Floor">
+                        Aryabhatta Ground Floor
+                    </option>
+
+                    <option value="Department of Artificial Intelligence">
+                        Department of Artificial Intelligence
+                    </option>
+
+                    <option value="Aryabhatta 1st Floor">
+                        Aryabhatta 1st Floor
+                    </option>
+
+                    <option value="Department of Mechanical Engineering">
+                        Department of Mechanical Engineering
+                    </option>
+
+                    <option value="3rd & 4th Year CSE Classes">
+                        3rd & 4th Year CSE Classes
+                    </option>
+
+                    <option value="Aryabhatta 2nd Floor">
+                        Aryabhatta 2nd Floor
+                    </option>
+
+                    <option value="Department of Electrical and Electronics Engineering">
+                        Department of Electrical and Electronics Engineering
+                    </option>
+
+                    <option value="Department of Computer Science and Engineering">
+                        Department of Computer Science and Engineering
+                    </option>
+
+                    <option value="Aryabhatta 3rd Floor">
+                        Aryabhatta 3rd Floor
+                    </option>
+
+                    <option value="Department of Mechatronics Engineering">
+                        Department of Mechatronics Engineering
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Find Route Button -->
+
+            <button id="findRouteBtn" class="route-button">
+
+                🧭 Find Shortest Route
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             ROUTE RESULT
+        ========================================== -->
+
+        <section id="resultCard" class="result-card hidden">
+
+            <div class="result-icon">
+                ✅
+            </div>
+
+            <h2>Shortest Route Found</h2>
+
+            <p id="routeSummary"></p>
+
+
+            <div class="route-display">
+
+                <h3>🛣️ Your Route</h3>
+
+                <div id="routePath">
+                </div>
+
+            </div>
+
+
+            <div class="distance-box">
+
+                <span>📏 Total Distance</span>
+
+                <strong id="totalDistance">
+                    --
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             CAMPUS LOCATIONS
+        ========================================== -->
+
+        <section class="locations-section">
+
+            <h2>🏫 Campus Locations</h2>
+
+            <p>
+                Explore the locations available in the navigation system.
+            </p>
+
+
+            <div class="locations-grid">
+
+
+                <div class="location-card">
+                    <span>🚪</span>
+                    <h3>Main Gate</h3>
+                    <p>Main entrance</p>
+                </div>
+
+
+                <div class="location-card">
+                    <span>🏢</span>
+                    <h3>Bhaskara Block</h3>
+                    <p>Academic block</p>
+                </div>
+
+
+                <div class="location-card">
+                    <span>☕</span>
+                    <h3>Cafe</h3>
+                    <p>Campus cafe</p>
+                </div>
+
+
+                <div class="location-card">
+                    <span>🏛️</span>
+                    <h3>Aryabhatta Block</h3>
+                    <p>Multi-floor academic block</p>
+                </div>
+
+
+                <div class="location-card">
+                    <span>🤖</span>
+                    <h3>AI Department</h3>
+                    <p>Ground floor</p>
+                </div>
+
+
+                <div class="location-card">
+                    <span>⚙️</span>
+                    <h3>Mechanical Engineering</h3>
+                    <p>1st floor - left</p>
+                </div>
+
+
+                <div class="location-card">
+                    <span>💻</span>
+                    <h3>CSE Classes</h3>
+                    <p>1st floor - right</p>
+                </div>
+
+
+                <div class="location-card">
+                    <span>⚡</span>
+                    <h3>EEE Department</h3>
+                    <p>2nd floor - left</p>
+                </div>
+
+
+                <div class="location-card">
+                    <span>🖥️</span>
+                    <h3>CSE Department</h3>
+                    <p>2nd floor - right</p>
+                </div>
+
+
+                <div class="location-card">
+                    <span>🔧</span>
+                    <h3>Mechatronics</h3>
+                    <p>3rd floor - left</p>
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <p>
+            🎓 Campus Navigation System
+        </p>
+
+        <span>
+            Powered by Graph Theory & Shortest Path Algorithms
+        </span>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
